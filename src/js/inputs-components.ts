@@ -7,6 +7,7 @@ export function assignComponent(element: HTMLElement) {
   const template = element.querySelector<HTMLTemplateElement>(
     'template.app-tmpl-input',
   );
+
   if (template === null) {
     throw new Error('template.app-tmpl-input not found');
   }
