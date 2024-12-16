@@ -1,10 +1,14 @@
 "use strict";
 document.addEventListener('DOMContentLoaded', () => {
-    const inputConponents = [
+    const inputComponents = [
         ...document.querySelectorAll('input[type="number"].app-elem-input'),
     ];
-    const completeResult = () => {
-        const result = inputConponents.reduce((result, inputConponent) => result + inputConponent.valueAsNumber, 0);
+    const computeResult = () => {
+        /* const result = inputComponents[0].value + inputComponents[1].value; */
+        /* const result = inputComponents.reduce((result, inputComponents) => {
+            return result + inputComponents.valueAsNumber;
+          }, 0) */
+        const result = inputComponents.reduce((result, inputComponent) => result + inputComponent.valueAsNumber, 0);
         const output = document.querySelector('output.app-elem-result');
         if (output !== null) {
             output.value = `${result}`;
@@ -13,8 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('output.app-elem-result not found');
         }
     };
-    inputConponents.forEach((inputConponents) => {
-        inputConponents.addEventListener('change', completeResult);
+    inputComponents.forEach((inputComponent) => {
+        inputComponent.addEventListener('change', computeResult);
     });
-    completeResult();
+    computeResult();
 });
