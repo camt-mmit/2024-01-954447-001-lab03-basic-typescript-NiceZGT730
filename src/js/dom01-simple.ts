@@ -1,13 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const inputConponents = [
+  const inputComponents = [
     ...document.querySelectorAll<HTMLInputElement>(
       'input[type="number"].app-elem-input',
     ),
   ];
 
-  const completeResult = () => {
-    const result = inputConponents.reduce(
-      (result, inputConponent) => result + inputConponent.valueAsNumber,
+  const computeResult = () => {
+    /* const result = inputComponents[0].value + inputComponents[1].value; */
+    /* const result = inputComponents.reduce((result, inputComponents) => {
+        return result + inputComponents.valueAsNumber;
+      }, 0) */
+
+    const result = inputComponents.reduce(
+      (result, inputComponent) => result + inputComponent.valueAsNumber,
       0,
     );
 
@@ -22,9 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  inputConponents.forEach((inputConponents) => {
-    inputConponents.addEventListener('change', completeResult);
+  inputComponents.forEach((inputComponent) => {
+    inputComponent.addEventListener('change', computeResult);
   });
 
-  completeResult();
+  computeResult();
 });
